@@ -25,7 +25,7 @@ var config = {
   },
   devServer: {
     contentBase: __dirname,
-    publicPath: 'http://localhost:8080/dist/'
+    publicPath: 'http://localhost:8080/dist/',
   },
   resolve: {
     extensions: ['', '.js', '.jsx'],
