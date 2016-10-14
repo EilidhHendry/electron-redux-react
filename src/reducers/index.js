@@ -13,10 +13,10 @@ export default function promoCodes(state = defaultState, action) {
         case actions.PROMO_CODES_RECEIVED:
             return {
                 ...state,
-                count: action.promoCodes.count,
-                next: action.promoCodes.next,
-                previous: action.promoCodes.previous,
-                results: action.promoCodes.results
+                count: action.promoCodes.response.count,
+                next: action.promoCodes.response.next,
+                previous: action.promoCodes.response.previous,
+                results: action.promoCodes.response.results
             };
         default:
             return state

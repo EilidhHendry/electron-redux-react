@@ -16,7 +16,10 @@ var config = {
     }, {
       test: /\.png|\.svg$/,
       loaders: ['file-loader']
-    }]
+  }, {
+      test: /\.json$/,
+      loaders: ['json-loader']
+  }]
   },
   output: {
     path: __dirname + '/dist',
