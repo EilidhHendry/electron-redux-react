@@ -26,6 +26,7 @@ var config = {
   devServer: {
     contentBase: __dirname,
     publicPath: 'http://localhost:8080/dist/',
+    historyApiFallback: true,
   },
   resolve: {
     extensions: ['', '.js', '.jsx'],

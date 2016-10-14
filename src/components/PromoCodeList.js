@@ -1,14 +1,12 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 
-import * as actions from '../../actions'
+export default class PromoCodeList extends Component {
 
-export class App extends Component {
     componentDidMount() {
         this.props.loadPromoCodes();
     }
+
     render() {
         const {count, next, previous, results} = this.props;
         return (
@@ -28,17 +26,6 @@ export class App extends Component {
                     ))}
                 </ul>
             </div>
-        )
+        );
     }
 }
-
-
-export default connect(
-    state => ({
-        count: state.count,
-        next: state.next,
-        previous: state.previous,
-        results: state.results
-    }),
-    dispatch => bindActionCreators(actions, dispatch)
-)(App)
