@@ -22,7 +22,7 @@ const responseHandler = (fetchPromise) => {
 }
 
 const api = {
-   Create: ( url, data ) => {
+   Post: ( url, data ) => {
        return responseHandler(
            fetch(url, {
                method: 'POST',
@@ -34,9 +34,9 @@ const api = {
            })
        );
    },
-   Read: (url) => {
+   Get: (url) => {
        return responseHandler(
-           fetch(url, {
+           fetch(getFullUrl(url), {
                method: 'GET',
                credentials: 'include',
            })
@@ -55,5 +55,5 @@ const api = {
 
 // api services
 //export const createPromoCode = code => api.Create('v1/session', {code: code});
-export const readPromoCodes = () => api.Read('http://local.trustedhousesitters.com:8000/api/v2/admin/promo_codes');
+export const readPromoCodes = () => api.Get('api/v2/admin/promo_codes');
 //export const deleteSession = () => api.Delete('v1/session');

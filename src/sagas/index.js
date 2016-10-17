@@ -5,12 +5,9 @@ import * as actions from '../actions'
 
 export function* loadPromoCodes() {
     const promoCodes = yield readPromoCodes();
-    yield put({type:'PROMO_CODES_RECEIVED', promoCodes})
+    yield put({type: actions.PROMO_CODES_RECEIVED, promoCodes})
 }
 
 export function* watchForLoadPromoCodes() {
-    while(true) {
-        yield take(actions.LOAD_PROMO_CODES);
-        yield call(loadPromoCodes);
-    }
+    yield takeEvery(actions.LOAD_PROMO_CODES, loadPromoCodes)
 }

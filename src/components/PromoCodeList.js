@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
 
+import Pagination from './Pagination'
+
 export default class PromoCodeList extends Component {
 
     componentDidMount() {
@@ -11,13 +13,7 @@ export default class PromoCodeList extends Component {
         const {count, next, previous, results} = this.props;
         return (
             <div>
-                <h3>Nav</h3>
-                <ul role="nav">
-                    <li><Link to="/about">About</Link></li>
-                </ul>
-                Count: {count},
-                Next: <a href={next}>{next}</a>,
-                Previous: {previous}
+                <p><Link to="/">Back</Link></p>
                 <ul>
                     {results.map(({id, code, start_date, end_date}) => (
                         <li key={id}>
@@ -25,6 +21,10 @@ export default class PromoCodeList extends Component {
                         </li>
                     ))}
                 </ul>
+                <Pagination
+                    count={count}
+                    previous={previous}
+                    next={next} />
             </div>
         );
     }
