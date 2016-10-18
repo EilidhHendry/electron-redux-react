@@ -4,12 +4,16 @@ import { bindActionCreators } from 'redux'
 import * as actions from '../actions'
 import PromoCodeList from '../components/PromoCodeList';
 
-export default connect(
-    state => ({
+
+function mapStateToProps(state) {
+    return ({
         count: state.count,
         next: state.next,
         previous: state.previous,
-        results: state.results
-    }),
+        results: state.results,
+    })
+}
+export default connect(
+    mapStateToProps,
     dispatch => bindActionCreators(actions, dispatch)
 )(PromoCodeList);

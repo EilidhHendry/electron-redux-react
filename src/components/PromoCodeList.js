@@ -4,9 +4,22 @@ import { Link } from 'react-router'
 import Pagination from './Pagination'
 
 export default class PromoCodeList extends Component {
+    constructor(props) {
+        super(props)
+        this.handleloadNextClick = this.handleloadNextClick.bind(this)
+        this.handleloadPreviousClick = this.handleloadPreviousClick.bind(this)
+    }
 
     componentDidMount() {
         this.props.loadPromoCodes();
+    }
+
+    handleloadNextClick() {
+        this.props.loadPromoCodes(this.props.next);
+    }
+
+    handleloadPreviousClick(){
+        this.props.loadPromoCodes(this.props.previous)
     }
 
     render() {
@@ -23,8 +36,8 @@ export default class PromoCodeList extends Component {
                 </ul>
                 <Pagination
                     count={count}
-                    previous={previous}
-                    next={next} />
+                    onLoadNextClick={this.handleloadNextClick}
+                    onLoadPreviousClick={this.handleloadPreviousClick}/>
             </div>
         );
     }

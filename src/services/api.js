@@ -1,6 +1,6 @@
 import 'isomorphic-fetch';
 
-const API_ENDPOINT = "http://local.trustedhousesitters.com:8000/"
+const API_ENDPOINT = "http://local.trustedhousesitters.com:8000"
 
 const getFullUrl = url => {
     return `${API_ENDPOINT}/${url}`;
@@ -36,7 +36,7 @@ const api = {
    },
    Get: (url) => {
        return responseHandler(
-           fetch(getFullUrl(url), {
+           fetch(url, {
                method: 'GET',
                credentials: 'include',
            })
@@ -55,5 +55,5 @@ const api = {
 
 // api services
 //export const createPromoCode = code => api.Create('v1/session', {code: code});
-export const readPromoCodes = () => api.Get('api/v2/admin/promo_codes');
+export const readPromoCodes = (url) => api.Get(url);
 //export const deleteSession = () => api.Delete('v1/session');
